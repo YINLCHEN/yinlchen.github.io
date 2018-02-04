@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Header.css';
+import '../../css/Header.css';
 
 const element = (
     <div class="container">
@@ -14,10 +14,10 @@ const element = (
             </div>
         </div>
         <div>
-                    React F2E <br/>
-                    Taipei, TW <br/>
-                    <a href="mailto:sidneychen137@gmail.com">sidneychen137@gmail.com</a>
-                </div>
+            React F2E <br/>
+            Taipei, TW <br/>
+            <a href="mailto:sidneychen137@gmail.com">sidneychen137@gmail.com</a>
+        </div>
     </div>
   );
 

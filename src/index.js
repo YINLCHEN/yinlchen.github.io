@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
 import './css/bootstrap-grid.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import App from './components/Home/App';
+import registerServiceWorker from './components/registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Router from './router';
+
+ReactDOM.render(<Router />, document.getElementById('root'));
 registerServiceWorker();
