@@ -1,7 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import SvgIcon from 'material-ui/SvgIcon';
-import './bootstrap-grid.css';
 
 const GitHubIcon = (props) => (
     <SvgIcon {...props}>
