@@ -1,4 +1,6 @@
 import React from 'react';
+import SvgIcon from 'material-ui/SvgIcon';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import '../../css/Header.css';
 
 const element = (
