@@ -1,8 +1,8 @@
 import React from 'react'
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
+  //,Link
 } from 'react-router-dom'
 import HomeApp from './components/Home/App'
 import ResumeApp from './components/Resume/App'

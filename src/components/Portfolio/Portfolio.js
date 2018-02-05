@@ -1,18 +1,17 @@
-import React from 'react';
+import React,{ Component } from 'react';
 import '../../css/Portfolio/Portfolio.css';
 
-const element =
-    <div className="PortfolioContainer">
-        <img alt="photoshot" src="https://i.imgur.com/3sxBQot.png" />
-        <h3>專案1</h3>
-        <div className="TextContainer">
-            <p>描述</p>
-        </div>
-    </div>;
-
-class Portfolio extends React.Component{
+class Portfolio extends Component{
     render(){
-        return element;
+        return (
+            <div className="PortfolioContainer">
+                <img alt="photoshot" src="https://i.imgur.com/3sxBQot.png" />
+                <h3>{this.props.projectName}</h3>
+                <div className="TextContainer">
+                    <p>{this.props.projectContribute}</p>
+                </div>
+            </div>
+        );
     }
 }
 

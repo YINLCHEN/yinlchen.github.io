@@ -1,17 +1,13 @@
 import React from 'react';
-import SvgIcon from 'material-ui/SvgIcon';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import '../../css/Header.css';
 
 const element = (
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h1>
-                    <p>CHEN YIN LIN</p>
-                </h1>
+    <div className="container">
+        <div className="row">
+            <div className="col-lg-8">
+                <h1>CHEN YIN LIN</h1>
             </div>
-            <div class="col-lg-4">
+            <div className="col-lg-4">
                 <img width="200px;" alt="myPhoto" src="https://i.imgur.com/3sxBQot.png" />
             </div>
         </div>

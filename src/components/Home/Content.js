@@ -3,9 +3,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButtonExampleComplex from './RaisedButtonExampleComplex';
 
 const element =
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
+    <div className="container">
+        <div className="row">
+            <div className="col-lg-8">
                 <MuiThemeProvider >
                     <RaisedButtonExampleComplex />
                 </MuiThemeProvider>
