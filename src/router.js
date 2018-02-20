@@ -7,6 +7,7 @@ import {
 import HomeApp from './components/Home/App'
 import ResumeApp from './components/Resume/App'
 import PortfolioApp from './components/Portfolio/App'
+import Project1App from './components/Project/FreezeTable/App'
 
 const router = () => (
   <Router>
@@ -24,6 +25,7 @@ const router = () => (
         <Route exact path="/" component={Home}/>
         <Route path="/resume" component={Resume}/>
         <Route path="/portfolio" component={Portfolio}/>
+        <Route path="/project1" component={Project1App}/>
     </div>
   </Router>
 )
@@ -38,6 +40,10 @@ const Resume = () => (
 
 const Portfolio = () => (
     <PortfolioApp />
+)
+
+const Project1 = () => (
+  <Project1App />
 )
 
 export default router

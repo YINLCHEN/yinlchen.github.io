@@ -1,11 +1,19 @@
 .PortfolioContainer {
-    width: 200px;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
 }
 
 img{
-    width: 200px;
+    width: 250px;
+}
+
+h3{
+    text-align: left;
 }
 
 .TextContainer{
-  background: rgba(0, 0, 0, 0.5)
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: left;
 }

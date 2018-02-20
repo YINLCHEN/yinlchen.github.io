@@ -68,7 +68,6 @@ const RaisedButtonExampleComplex = () => (
             style={styles.button}
             icon={<GitHubIcon />}
         />
-        
     </div>
 );
 
