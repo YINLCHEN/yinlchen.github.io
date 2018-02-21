@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Content from './Content';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBarExampleIcon from '../AppBarExampleIcon';
 import Header from './Header';
 import '../../css/App.css';
 import '../../css/bootstrap-grid.css';
@@ -7,14 +8,14 @@ import '../../css/bootstrap-grid.css';
 class App extends Component {
   render() {
     return (
-        <div className="App">
-        
-            <Header />
-         
-          <br/>
-        
-            <Content />
-        
+        <div>
+            <MuiThemeProvider >
+                <AppBarExampleIcon />
+            </MuiThemeProvider >
+            <div className="App">
+                <Header />
+            </div>
+            
         </div>
     );
   }

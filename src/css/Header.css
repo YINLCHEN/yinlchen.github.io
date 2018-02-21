@@ -1,3 +1,11 @@
 a{
     color: rgb(255, 128, 170);
 }
+
+h1{
+    font-size: 3em;
+}
+
+.introDiv{
+    padding-left: 15px;
+}

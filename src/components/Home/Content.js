@@ -5,7 +5,7 @@ import RaisedButtonExampleComplex from './RaisedButtonExampleComplex';
 const element =
     <div className="container">
         <div className="row">
-            <div className="col-lg-8">
+            <div>
                 <MuiThemeProvider >
                     <RaisedButtonExampleComplex />
                 </MuiThemeProvider>

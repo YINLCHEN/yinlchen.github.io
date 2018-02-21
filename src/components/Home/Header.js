@@ -1,20 +1,27 @@
 import React from 'react';
+import MyPhoto from '../../images/ski.jpg';
+import Content from './Content';
 import '../../css/Header.css';
 
 const element = (
     <div className="container">
         <div className="row">
-            <div className="col-lg-8">
-                <h1>CHEN YIN LIN</h1>
+            <div className="col-lg-9">
+                <div className="introDiv">
+                    <h1>CHEN YIN LIN</h1>
+                    <div>
+                        <h4>React F2E X Taipei TW</h4>
+                        <hr/>
+                        <h3>
+                            <a href="mailto:sidneychen137@gmail.com">sidneychen137@gmail.com</a>
+                        </h3>
+                    </div>
+                </div>
+                <Content />
             </div>
-            <div className="col-lg-4">
-                <img width="200px;" alt="myPhoto" src="https://i.imgur.com/3sxBQot.png" />
+            <div className="col-lg-2">
+                <img width="200px;" alt="myPhoto" src={MyPhoto} />
             </div>
-        </div>
-        <div>
-            React F2E <br/>
-            Taipei, TW <br/>
-            <a href="mailto:sidneychen137@gmail.com">sidneychen137@gmail.com</a>
         </div>
     </div>
   );
