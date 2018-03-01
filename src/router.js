@@ -7,6 +7,10 @@ import {
 import HomeApp from './components/Home/App'
 import ResumeApp from './components/Resume/App'
 import PortfolioApp from './components/Portfolio/App'
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-114915898-1');
+ReactGA.pageview(window.location.pathname);
 
 const router = () => (
   <Router>
@@ -21,9 +25,9 @@ const router = () => (
             */
         }
 
-        <Route exact path="/" component={Home}/>
-        <Route path="/resume" component={Resume}/>
-        <Route path="/portfolio" component={Portfolio}/>
+        <Route exact path="/" component={Home} />
+        <Route path="/resume" component={Resume} />
+        <Route path="/portfolio" component={Portfolio} />
     </div>
   </Router>
 )

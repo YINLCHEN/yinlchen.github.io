@@ -17,8 +17,8 @@ const element =
                     工作之餘，以ReactJS實作個人網站包含作品集，作品多為需求上遇到的問題解決方案
                     <br/><br/>
                     <h3>使用技術</h3>
-                    ReactJS and NodeJS with Express framework<br/>
-                    via GitHub webhook deploying to Heroku
+                    The website is using ReactJS with Material-UI and NodeJS with Express framework,<br/>
+                    deploy to HeroKu with a GitHub webhook.
 
                 <hr />
 
