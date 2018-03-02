@@ -26,13 +26,33 @@ const styles = {
       width: '100%',
       opacity: 0,
     }
-  };
+};
+
+class Image extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {imageSrc: props.projectImage}
+    }
+
+    render(){
+        if(this.state.imageSrc==null){
+            return (
+                <div className="emptyDiv"></div>
+            )
+        }
+        else{
+            return (
+                <img alt="photoshot" src={this.state.imageSrc} align="middle"/>
+            )
+        }
+    }
+}
 
 class Portfolio extends Component{
     render(){
         return (
             <div className="PortfolioContainer">
-                <img alt="photoshot" src={this.props.projectImage} align="middle"/>
+                <Image projectImage={this.props.projectImage}/>
                 <h3>{this.props.projectName}</h3>
                 <div className="TextContainer">
                     <p>{this.props.projectContribute}</p>
