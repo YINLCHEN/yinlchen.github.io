@@ -2,7 +2,7 @@ import React from 'react';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
-import {darkBlack, cyan50} from 'material-ui/styles/colors';
+import {cyan50} from 'material-ui/styles/colors';
 import ObankLogo from '../../images/obank.png';
 import FubonLogo from '../../images/fubon.png';
 import MCULogo from '../../images/Ming_Chuan_University_LOGO.svg';
