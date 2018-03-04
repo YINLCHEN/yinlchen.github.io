@@ -39,17 +39,7 @@ const GitHubIcon = (props) => (
 
 const styles = {
   button: {
-    margin: 12,
-  },
-  exampleImageInput: {
-    cursor: 'pointer',
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    right: 0,
-    left: 0,
-    width: '100%',
-    opacity: 0,
+    margin: 15,
   }
 };
 
@@ -61,11 +51,9 @@ const RaisedButtonExampleComplex = () => (
             style={styles.button}
             icon={<AboutIcon />}
             containerElement={<Link to="/about"/>}
-        >
-        </RaisedButton>
+        />
 
         <RaisedButton
-            href="./resume"
             label="Resume"
             secondary={true}
             style={styles.button}
@@ -82,12 +70,12 @@ const RaisedButtonExampleComplex = () => (
         />
 
         <RaisedButton
-            href="https://github.com/YINLCHEN"
             target="_blank"
             label="Github Link"
             secondary={true}
             style={styles.button}
             icon={<GitHubIcon />}
+            containerElement={<Link to="https://github.com/YINLCHEN"/>}
         />
     </div>
 );

@@ -1,12 +1,17 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
-import {blueGrey300, cyan50} from 'material-ui/styles/colors';
+import {blueGrey300, cyan50, white} from 'material-ui/styles/colors';
 import Avatar from 'material-ui/Avatar';
-import ReactLogo from '../../images/ReactLogo.png';
-import NodejsLogo from '../../images/NodejsLogo.png';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
+
+import ReactLogo from '../../images/ReactLogo.png';
+import NodejsLogo from '../../images/NodejsLogo.png';
+import JavaLogo from '../../images/JavaLogo.png';
+import CsharpLogo from '../../images/csharp.svg';
+import CICDLogo from '../../images/CICDLogo.png';
+import GitLogo from '../../images/gitLogo.png';
 
 const styles = {
     tab: {
@@ -33,28 +38,35 @@ const FrontSkillData = [
 const BackSkillData = [
     {
         skillName: 'Java',
-        skillLogo: ReactLogo
+        skillLogo: JavaLogo
     },
     {
         skillName: 'C#',
-        skillLogo: NodejsLogo
+        skillLogo: CsharpLogo
     }
 ]
 const CSSkillData = [
     {
         skillName: 'CI/CD',
-        skillLogo: ReactLogo
+        skillLogo: CICDLogo
     },
     {
         skillName: 'git',
-        skillLogo: NodejsLogo
+        skillLogo: GitLogo
     }
 ]
 
 function SkillChip(props) {
     const skills = props.skill;
     const listItems = skills.map((skill,index) =>
-        <ListItem style={styles.list} key={index} disabled={true} leftAvatar={<Avatar src={skill.skillLogo}/>}>
+        <ListItem 
+            style={styles.list} 
+            key={index} 
+            disabled={true} 
+            leftAvatar={<Avatar src={skill.skillLogo} 
+            style={
+                {backgroundColor:white}
+            }/>}>
         {skill.skillName}
         </ListItem>
     );
