@@ -10,7 +10,11 @@ const AppBarExampleIcon = () => (
     <AppBar
       title="YINLCHEN"
       iconClassNameRight="muidocs-icon-navigation-expand-more"
-      style={{ backgroundColor: blueGrey300 }}
+      style=
+      {{ 
+          backgroundColor: blueGrey300,
+          opacity: 0.8
+      }}
       onLeftIconButtonClick = {handleClick}
     />
 );

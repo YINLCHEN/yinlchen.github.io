@@ -1,7 +1,7 @@
 import React from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
-import {blueGrey300} from 'material-ui/styles/colors';
+import {blueGrey300, cyan50} from 'material-ui/styles/colors';
 import Avatar from 'material-ui/Avatar';
 import ReactLogo from '../../images/ReactLogo.png';
 import NodejsLogo from '../../images/NodejsLogo.png';
@@ -13,8 +13,11 @@ const styles = {
         backgroundColor: blueGrey300
     },
     slide: {
-    padding: 10,
+        padding: 10
     },
+    list:{
+        color: cyan50
+    }
 };
 
 const FrontSkillData = [
@@ -54,7 +57,7 @@ const CSSkillData = [
 function SkillChip(props) {
     const skills = props.skill;
     const listItems = skills.map((skill,index) =>
-        <ListItem key={index} disabled={true} leftAvatar={<Avatar src={skill.skillLogo}/>}>
+        <ListItem style={styles.list} key={index} disabled={true} leftAvatar={<Avatar src={skill.skillLogo}/>}>
         {skill.skillName}
         </ListItem>
     );
@@ -93,7 +96,7 @@ export default class Skill extends React.Component {
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChange}
                 >
-                <div>
+                <div style={styles.slide}>
                     <SkillChip skill={FrontSkillData} />
                 </div>
                 <div style={styles.slide}>
