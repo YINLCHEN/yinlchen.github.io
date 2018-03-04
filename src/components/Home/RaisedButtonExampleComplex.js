@@ -1,6 +1,9 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import SvgIcon from 'material-ui/SvgIcon';
+import {
+    Link
+} from 'react-router-dom'
 
 const AboutIcon = (props) => (   
     <SvgIcon {...props}>
@@ -53,12 +56,13 @@ const styles = {
 const RaisedButtonExampleComplex = () => (
     <div>
         <RaisedButton
-            href="./about"
             label="About"
             secondary={true}
             style={styles.button}
             icon={<AboutIcon />}
-        />
+            containerElement={<Link to="/about"/>}
+        >
+        </RaisedButton>
 
         <RaisedButton
             href="./resume"
@@ -66,14 +70,15 @@ const RaisedButtonExampleComplex = () => (
             secondary={true}
             style={styles.button}
             icon={<ResumeIcon />}
+            containerElement={<Link to="/resume"/>}
         />
         
         <RaisedButton
-            href="./portfolio"
             label="Portfolio"
             secondary={true}
             style={styles.button}
             icon={<PortfolioIcon />}
+            containerElement={<Link to="/portfolio"/>}
         />
 
         <RaisedButton

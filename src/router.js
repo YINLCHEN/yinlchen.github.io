@@ -1,8 +1,7 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route
-  //,Link
 } from 'react-router-dom'
 import HomeApp from './components/Home/App'
 import AboutApp from './components/About/App'
@@ -16,15 +15,15 @@ ReactGA.pageview(window.location.pathname);
 const router = () => (
   <Router>
     <div>
-        {
-            /*
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/resume">resume</Link></li>
-            </ul>
-            <hr/>
-            */
-        }
+        {/*
+        <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">about</Link></li>
+            <li><Link to="/resume">resume</Link></li>
+            <li><Link to="/portfolio">portfolio</Link></li>
+        </ul>
+        <hr/>
+        */}
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/resume" component={Resume} />

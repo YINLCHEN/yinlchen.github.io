@@ -25,7 +25,6 @@ const FrontSkillData = [
         skillName: 'ReactJS',
         skillLogo: ReactLogo
     },
-
     {
         skillName: 'NodeJs',
         skillLogo: NodejsLogo
@@ -36,7 +35,6 @@ const BackSkillData = [
         skillName: 'Java',
         skillLogo: ReactLogo
     },
-
     {
         skillName: 'C#',
         skillLogo: NodejsLogo
@@ -47,7 +45,6 @@ const CSSkillData = [
         skillName: 'CI/CD',
         skillLogo: ReactLogo
     },
-
     {
         skillName: 'git',
         skillLogo: NodejsLogo
