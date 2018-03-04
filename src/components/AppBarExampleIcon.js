@@ -60,7 +60,7 @@ class ChangeBackground extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            count: 2,
+            count: 1,
             test: props.test
         }
     }
@@ -74,7 +74,7 @@ class ChangeBackground extends React.Component {
     render() {
         Change(this.state.count);
         return (
-            <IconButton onClick={this.incrementCount} style={styles.ColorIcon} tooltip="Change Background" touch={true} tooltipPosition="bottom-center">
+            <IconButton onClick={this.incrementCount} tooltip="Change Background" touch={true} tooltipPosition="bottom-left">
                 <ColorIcon />
             </IconButton>
         )
@@ -95,13 +95,6 @@ function Change(params) {
         default:
     };
 }
-
-const styles = {
-    ColorIcon: {
-        width: 54,
-        height: 54
-    }
-};
 
 const ColorIcon = (props) => (
     <SvgIcon {...props}>
