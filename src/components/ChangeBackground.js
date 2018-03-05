@@ -15,7 +15,7 @@ const ChangeColorIcon = (props) => (
 );
 
 class ChangeBackground extends React.Component {
-   
+
     increment = () => {
         this.props.dispatch({ type: 'INCREMENT' });
         ChangeColor(this.props.count);
@@ -38,6 +38,10 @@ class ChangeBackground extends React.Component {
 }
 
 function mapStateToProps(state) {
+    if(state.count === 0){
+        ChangeColor(1);
+        state.count = 1;
+    }
     return {
         count: state.count
     };
