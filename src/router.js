@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
+import IndexApp from './components/Index/App'
 import HomeApp from './components/Home/App'
 import AboutApp from './components/About/App'
 import ResumeApp from './components/Resume/App'
@@ -24,7 +25,8 @@ const router = () => (
         </ul>
         <hr/>
         */}
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={IndexPage} />
+        <Route path="/home" component={Home} />
         <Route path="/about" component={About} />
         <Route path="/resume" component={Resume} />
         <Route path="/portfolio" component={Portfolio} />
@@ -32,12 +34,16 @@ const router = () => (
   </Router>
 )
 
+const IndexPage = () => (
+    <IndexApp />
+)
+
 const Home = () => (
-  <HomeApp />
+    <HomeApp />
 )
 
 const About = () => (
-  <AboutApp />
+    <AboutApp />
 )
 
 const Resume = () => (

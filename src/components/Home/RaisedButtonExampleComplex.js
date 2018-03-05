@@ -38,9 +38,9 @@ const GitHubIcon = (props) => (
 );
 
 const styles = {
-  button: {
-    margin: 15,
-  }
+    button: {
+        margin: 15,
+    }
 };
 
 const RaisedButtonExampleComplex = () => (

@@ -5,6 +5,12 @@
     background: rgba(0,0,0,0.6);
 }
 
+.IndexApp {
+    margin-top: 100px;
+    padding: 20px;
+    color:white;
+}
+
 .App-logo {
     animation: App-logo-spin infinite 20s linear;
     height: 80px;

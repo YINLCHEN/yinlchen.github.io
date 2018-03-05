@@ -24,7 +24,7 @@ const element = (
             </div>
         </div>
     </div>
-  );
+);
 
 class Header extends React.Component{
     render(){
