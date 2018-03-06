@@ -1,11 +1,12 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 import SvgIcon from 'material-ui/SvgIcon';
-import '../../css/Index/Content.css';
+import RaisedButton from 'material-ui/RaisedButton';
+import Clock from './Clock';
 import {
     Link
 } from 'react-router-dom'
+import '../../css/Index/Content.css';
 
 const styles = {
     button: {
@@ -24,10 +25,14 @@ const AboutIcon = (props) => (
 const element =
     <div className="container">
         <div className="row">
-            <div className="title">
-                Welcome!
+            <div className="col-lg-12">
+                <div className="title">
+                    <Clock />
+                </div>
             </div>
-            <div className="toCenter">
+        </div>
+        <div className="row">
+            <div className="col-lg-12">
                 <MuiThemeProvider >
                     <RaisedButton
                         label="Enter"
@@ -42,10 +47,10 @@ const element =
     </div>
 ;
 
-class HiContent extends React.Component{
+class Content extends React.Component{
     render(){
         return element;
     }
 }
 
-export default HiContent;
+export default Content;

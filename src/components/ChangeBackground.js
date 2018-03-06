@@ -40,7 +40,7 @@ class ChangeBackground extends React.Component {
 function mapStateToProps(state) {
     if(state.count === 0){
         ChangeColor(1);
-        state.count = 1;
+        state.count = 2;
     }
     return {
         count: state.count
