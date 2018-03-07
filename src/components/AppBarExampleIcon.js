@@ -8,12 +8,6 @@ import {
 } from 'react-router-dom'
 import ChangeBackground from './ChangeBackground'
 
-import reducer from '../reducers'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux';
-
-const store = createStore(reducer)
-
 class DrawerAppBar extends React.Component {
 
     constructor(props) {
@@ -38,10 +32,9 @@ class DrawerAppBar extends React.Component {
                     }}
                     onLeftIconButtonClick = {this.handleToggle}
                     >
-                    <Provider store={store}>
-                        <ChangeBackground />
-                    </Provider>
-
+                    
+                    <ChangeBackground />
+                        
                 </AppBar>
                 
                 <Drawer

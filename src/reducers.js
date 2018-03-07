@@ -8,10 +8,6 @@ export default (state = initialState, action) => {
             return {
                 count: state.count + 1
             };
-        case 'DECREMENT':
-            return {
-                count: state.count - 1
-            };
         default:
             return state;
     }

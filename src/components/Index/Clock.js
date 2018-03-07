@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class Clock extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -30,14 +31,42 @@ class Clock extends React.Component {
             messageCounter: this.state.counter%2 !== 0 ? this.state.messageCounter+1 : this.state.messageCounter,
             open: !this.state.open
         });
+        this.props.dispatch({ type: 'GET' });
     }
     
     render() {
         const classes = this.state.open ? 'basket' : 'basket hide'
         return (
-            <div className={classes} >{this.state.data[this.state.messageCounter%4]}</div>
+            <div className={classes} 
+                style={{
+                    color: dispatchFontColor(this.props.count)
+                }}>
+                {this.state.data[this.state.messageCounter%4]}
+            </div>
         );
     }
 }
 
-export default Clock;
+function mapStateToProps(state) {
+    return {
+        count: state.count-1
+    };
+}
+
+function dispatchFontColor(backgroundColor){
+    switch(backgroundColor%3){
+        case 0:
+            return '#EF9A9A'
+            
+        case 1:
+            return 'white'
+
+        case 2:
+            return '#F4FF81'
+
+        default:
+            return '#white'
+    }
+}
+
+export default connect(mapStateToProps)(Clock);
