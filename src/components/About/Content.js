@@ -4,18 +4,22 @@ const element =
     <div className="container">
         <div className="row">
             <div className="col-lg-8">
-                <h1>關於我</h1>
-                    Hi, 我是YIN, 資工系畢業，業界已有兩年全端經驗，主要開發JAVA及Ｃ#相關系統，
-                    並有多個專案經驗，因自身興趣，前端可帶給使用者體驗，不同於後端，除了工作上使用javascipt及jQuery外，
-                    自學精進React & Redux，將來目標往前端工程師專精！
-                <hr />
-                
-                <h1>關於網站</h1>
-                    工作之餘，以ReactJS實作個人網站包含作品集，作品多為需求上遇到的問題解決方案
+            
+                <h1>About the Website</h1>
+                    It' my personal website, includes Portfolio、About me, and Resume. 
+                    Many of program solution on my job work. I make a page for Porfolio, and the source code hosted on GitHub.
                     <br/><br/>
-                    <h3>使用技術</h3>
-                    The website is using ReactJS with Material-UI and NodeJS with Express framework,<br/>
-                    deploy to HeroKu with a GitHub webhook.
+
+                    <h3>Web technologies</h3>
+                    The website is using React, use React-Router to create a SPA(Single-Page-Application), 
+                    manage state with Redux, UI use Material-UI, and using NodeJS for the Backend.
+                    When I 'git push' my project to GitHub, it will deploy to HeroKu with GitHub webhook.
+                <hr />
+
+                <h1>開發心路歷程</h1>
+                    從無到有，苦盡甘來
+                    <br/>
+                    
                 <hr />
             </div>
         </div>

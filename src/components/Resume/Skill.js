@@ -9,8 +9,6 @@ import ListItem from 'material-ui/List/ListItem';
 import ReactLogo from '../../images/ReactLogo.png';
 import NodejsLogo from '../../images/NodejsLogo.png';
 import JavaLogo from '../../images/JavaLogo.png';
-import CsharpLogo from '../../images/csharp.svg';
-import CICDLogo from '../../images/CICDLogo.png';
 import GitLogo from '../../images/gitLogo.png';
 
 const styles = {
@@ -42,13 +40,15 @@ const BackSkillData = [
     },
     {
         skillName: 'C#',
-        skillLogo: CsharpLogo
+        skillLogo: '',
+        tag: 'C'
     }
 ]
 const CSSkillData = [
     {
         skillName: 'CI/CD',
-        skillLogo: CICDLogo
+        skillLogo: '',
+        tag: '#'
     },
     {
         skillName: 'git',
@@ -63,11 +63,9 @@ function SkillChip(props) {
             style={styles.list} 
             key={index} 
             disabled={true} 
-            leftAvatar={<Avatar src={skill.skillLogo} 
-            style={
-                {backgroundColor:white}
-            }/>}>
-        {skill.skillName}
+            leftAvatar={ skill.skillLogo !== '' ? 
+                         <Avatar src={skill.skillLogo} style={{backgroundColor:white}}/> : 
+                         <Avatar>{skill.tag}</Avatar>}>{skill.skillName}
         </ListItem>
     );
     return (
