@@ -40,7 +40,7 @@ const element =
                 <hr/>
                 <br/>
 
-                <h1>I'm CHEN YIN LIN, Frond-End Engineer.</h1>
+                <h1>I'm CHEN YIN LIN, Front-End Engineer.</h1>
                 <br/><br/>
                 <br/><br/>
 
