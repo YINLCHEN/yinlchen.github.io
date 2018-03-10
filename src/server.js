@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 app.use(express.static('build'));
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    res.sendFile('index.html');
 });
 
 //DB Server
