@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 var mongoose = require('mongoose');
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static('build'));
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
