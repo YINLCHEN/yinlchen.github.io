@@ -3,10 +3,10 @@ const path = require('path');
 const app = express();
 var mongoose = require('mongoose');
 
-app.use(express.static('build'));
+app.use(express.static(path.join(__dirname, '/build')));
 
 app.get('/', function (req, res) {
-    res.sendFile('index.html');
+    res.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
 //DB Server
