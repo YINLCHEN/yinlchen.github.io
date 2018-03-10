@@ -42,7 +42,6 @@ portfolio.save(function (err) {
 });
 
 app.get('/portfolio', function(req, res) {
-    console.info('portfolio')
     Portfolio.find({}, function(err, portfolios) {
         var map = {};
     
