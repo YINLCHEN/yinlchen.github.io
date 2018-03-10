@@ -51,7 +51,7 @@ const Resume = () => (
 )
 
 const Portfolio = () => (
-    <PortfolioApp />
+    <PortfolioApp url='/portfolio' pollInterval={10000}/>
 )
 
 export default router

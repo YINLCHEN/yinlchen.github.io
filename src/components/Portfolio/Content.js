@@ -5,7 +5,28 @@ import freezeTableLogo from '../../images/freezeTable.gif';
 import dynamicSearchLogo from '../../images/dynamicSearch.gif';
 
 class Content extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = { data: [] };
+
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.props
+        });
+     }
+
     render(){
+        const data=this.state.data
+        const element =  Object.keys(data).map((key,index) =>
+                    <Portfolio
+                        key={index}
+                        projectName={data[key].title}
+                        projectContribute = {data[key].body}
+                        href="" />
+        );
+
         return (
             <div className="container">
                 <div className="row">
@@ -28,6 +49,8 @@ class Content extends React.Component{
                                 projectName="Excel Merge Tool" 
                                 projectContribute = "Design Pattern: Factory Pattern，由一個主要ＭergeService，呼叫到再實作出MergeTableService" 
                                 href=""/>
+
+                             {element}
                         </div> 
                     </div>
                 </div>
