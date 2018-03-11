@@ -14,8 +14,10 @@ app.get('/', function (req, res) {
 var Schema = mongoose.Schema;
 var portfolioSchema = new Schema({
     author: String,
+    image: String,
     title:  String,
     body:   String,
+    link: String,
     date: { type: Date, default: Date.now },
     hidden: Boolean,
 });
@@ -26,8 +28,10 @@ var Portfolio = mongoose.model('Portfolio', portfolioSchema);
 //ODM
 var portfolio = new Portfolio({
     author: 'YINLCHEN',
+    image: '',
     title: 'titleTest',
     body: 'bodyTest',
+    link: '',
     hidden: false
 })
 
@@ -42,7 +46,7 @@ portfolio.save(function (err) {
 });
 
 app.get('/portfolio', function(req, res) {
-    Portfolio.find({}, function(err, portfolios) {
+    Portfolio.find({}).sort({"date":1}).exec(function(err, portfolios) {
         var map = {};
     
         portfolios.forEach(function(portfolio) {
