@@ -1,8 +1,8 @@
 {
   "main.css": "static/css/main.04b01d04.css",
   "main.css.map": "static/css/main.04b01d04.css.map",
-  "main.js": "static/js/main.f36c1aba.js",
-  "main.js.map": "static/js/main.f36c1aba.js.map",
+  "main.js": "static/js/main.7f1926d3.js",
+  "main.js.map": "static/js/main.7f1926d3.js.map",
   "static/media/IMG_0977.JPG": "static/media/IMG_0977.7945c558.JPG",
   "static/media/IMG_2014.JPG": "static/media/IMG_2014.71158a3b.JPG",
   "static/media/IMG_6889.JPG": "static/media/IMG_6889.5ff210fc.JPG",
@@ -13,6 +13,8 @@
   "static/media/freezeTable.gif": "static/media/freezeTable.4c3da5cd.gif",
   "static/media/fubon.png": "static/media/fubon.274535d9.png",
   "static/media/gitLogo.png": "static/media/gitLogo.25d23aa8.png",
+  "static/media/github_logo.svg": "static/media/github_logo.119484c6.svg",
+  "static/media/logo.svg": "static/media/logo.5d5d9eef.svg",
   "static/media/obank.png": "static/media/obank.403894ce.png",
   "static/media/ski.jpg": "static/media/ski.b25522ca.jpg"
 }
