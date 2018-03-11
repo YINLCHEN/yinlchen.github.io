@@ -59,6 +59,7 @@ class Portfolio extends Component{
                 </div>
                 <MuiThemeProvider>
                     <RaisedButton
+                        target="_blank"
                         href={this.props.href}
                         label="Project Link"
                         secondary={true}

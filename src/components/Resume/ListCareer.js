@@ -3,51 +3,53 @@ import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Avatar from 'material-ui/Avatar';
 import {cyan50} from 'material-ui/styles/colors';
-import ObankLogo from '../../images/obank.png';
-import FubonLogo from '../../images/fubon.png';
-import MCULogo from '../../images/Ming_Chuan_University_LOGO.svg';
 
-const ListCareer = () => (
-  <div>
-      <List>
-        <Subheader style={{color:cyan50}}>2017.6 ~ Now</Subheader>
-        <ListItem style={{color:cyan50}}
-          leftAvatar={<Avatar src={ObankLogo} />}
-          primaryText="O-BANK IT"
-          secondaryText={
-            <p style={{color: cyan50}}>
-              <span>Web Developer</span>
-              -- Develop: C# MVC、JavaScript
-            </p>
-          }
-          secondaryTextLines={2}
-        />
-        <Subheader style={{color:cyan50}}>2016.3 ~ 2017.6</Subheader>
-        <ListItem style={{color:cyan50}}
-          leftAvatar={<Avatar src={FubonLogo} />}
-          primaryText="Fubon Fiancial IT"
-          secondaryText={
-            <p style={{color:cyan50}}>
-              <span>Web Developer</span>
-              -- Develop: JAVA Spring、JavaScript
-            </p>
-          }
-          secondaryTextLines={2}
-        />
-        <Subheader style={{color:cyan50}}>2010.9 ~ 2014.6</Subheader>
-        <ListItem style={{color:cyan50}}
-          leftAvatar={<Avatar src={MCULogo} />}
-          primaryText="Ming Chuan University"
-          secondaryText={
-            <p style={{color:cyan50}}>
-              <span>資訊工程學系</span>
-              -- Computer Science
-            </p>
-          }
-          secondaryTextLines={2}
-        />
-      </List>
-  </div>
-);
+class ListCareer extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = { data: [] };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.props
+        });
+     }
+
+    render(){
+        const data = this.state.data;
+        const element =  Object.keys(data).map((Rkey,Rindex) =>
+            <div key={Rkey}>
+                {
+                    Object.keys(data[Rkey].WorkExperience).map( (Wkey, Windex) => {
+                        return (
+                            <div key={Wkey}>
+                            <Subheader style = {{color:cyan50}}>{data[Rkey].WorkExperience[Wkey].WorkTime}</Subheader>
+                            <ListItem style = {{color:cyan50}}
+                                leftAvatar = {<Avatar src={ data[Rkey].WorkExperience[Wkey].Image ? require('../../images/' + data[Rkey].WorkExperience[Wkey].Image) : null }/>}
+                                primaryText = {data[Rkey].WorkExperience[Wkey].Company}
+                                secondaryText={
+                                    <p style={{color: cyan50}}>
+                                    <span>{data[Rkey].WorkExperience[Wkey].Describe}</span>
+                                    </p>
+                                }
+                                secondaryTextLines={2}
+                            />
+                            </div>
+                        )
+                    })
+                }
+            </div>
+        );
+
+        return(
+            <div>
+                <List>
+                    {element}
+                </List>
+            </div>
+        );
+    }
+}
 
 export default ListCareer;

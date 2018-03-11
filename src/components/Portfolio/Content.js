@@ -15,9 +15,8 @@ class Content extends React.Component{
      }
 
     render(){
-        const data=this.state.data
+        const data = this.state.data
         const element =  Object.keys(data).map((key,index) => 
-
             <Portfolio
                 key={index}
                 projectImage={ data[key].image ? require('../../images/' + data[key].image + '.gif') : null }
@@ -25,7 +24,6 @@ class Content extends React.Component{
                 projectContribute = {data[key].body}
                 href={data[key].link} 
             />
-
         );
 
         return (

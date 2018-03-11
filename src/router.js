@@ -1,7 +1,7 @@
 import React from 'react'
 import {
-  BrowserRouter as Router,
-  Route
+    BrowserRouter as Router,
+    Route
 } from 'react-router-dom'
 import IndexApp from './components/Index/App'
 import HomeApp from './components/Home/App'
@@ -47,7 +47,7 @@ const About = () => (
 )
 
 const Resume = () => (
-  <ResumeApp />
+  <ResumeApp url='/resume' pollInterval={10000}/>
 )
 
 const Portfolio = () => (

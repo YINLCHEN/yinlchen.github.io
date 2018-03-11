@@ -22,8 +22,32 @@ var portfolioSchema = new Schema({
     hidden: Boolean,
 });
 
+var WorkNestedSchema = new Schema({
+    WorkTime: String,
+    Company: String,
+    Describe: String
+});
+var ProjectNestedSchema = new Schema({
+    Title: String,
+    Describe: String
+});
+var SkillNestedSchema = new Schema({
+    Title: String,
+    Image: String,
+    Describe: String
+});
+var resumeSchema = new Schema({
+    Author: String,
+    About: String,
+    WorkExperience:  [WorkNestedSchema],
+    ProjectExperience:  [ProjectNestedSchema],
+    Skill: [SkillNestedSchema],
+    Date: { type: Date, default: Date.now }
+});
+
 //Model
 var Portfolio = mongoose.model('Portfolio', portfolioSchema);
+var Resume = mongoose.model('Resume', resumeSchema);
 
 //ODM
 var portfolio = new Portfolio({
@@ -35,6 +59,27 @@ var portfolio = new Portfolio({
     hidden: false
 })
 
+var resume = new Resume({
+    Author: 'YINLCHEN',
+    About: 'about',
+    WorkExperience:  [{
+        WorkTime: '2016',
+        Company: 'ooo',
+        Describe: 'xxx',
+        Image: ''}
+    ],
+    ProjectExperience:  [{
+        Title: 'hey',
+        Describe: 'work'
+    }],
+    Skill: [{
+        Title: 'front',
+        Image: 'name',
+        Describe: 'href'
+    }]
+})
+
+/*
 //Save
 portfolio.save(function (err) {
     if (err){
@@ -45,12 +90,37 @@ portfolio.save(function (err) {
     }
 });
 
+resume.save(function (err) {
+    if (err){
+        console.log ('Error on save!')
+    }
+    else{
+        console.log ('Save Success!')
+    }
+});
+*/
+
 app.get('/portfolio', function(req, res) {
     Portfolio.find({}).sort({"date":1}).exec(function(err, portfolios) {
         var map = {};
     
         portfolios.forEach(function(portfolio) {
             map[portfolio._id] = portfolio;
+        });
+  
+        if(err){
+            res.send(err);
+            }
+        res.json(map);
+    });
+});
+
+app.get('/resume', function(req, res) {
+    Resume.find({}).sort({"date":1}).exec(function(err, resume) {
+        var map = {};
+    
+        resume.forEach(function(resume) {
+            map[resume._id] = resume;
         });
   
         if(err){

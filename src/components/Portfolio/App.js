@@ -20,10 +20,10 @@ class App extends Component {
                 this.setState({ data: res.data });
             })
     }
-
+    
     componentDidMount() {
         this.loadTodosFromServer();
-        setInterval(this.loadTodosFromServer, this.props.pollInterval);
+        //setInterval(this.loadTodosFromServer, this.props.pollInterval);
     }
 
     render() {
