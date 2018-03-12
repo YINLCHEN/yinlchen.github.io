@@ -11,6 +11,7 @@ app.get('/', function (req, res) {
 
 //DB Server
 //Schema
+//Portfolio
 var Schema = mongoose.Schema;
 var portfolioSchema = new Schema({
     author: String,
@@ -22,6 +23,7 @@ var portfolioSchema = new Schema({
     hidden: Boolean,
 });
 
+//Resume
 var WorkNestedSchema = new Schema({
     WorkTime: String,
     Company: String,
@@ -45,9 +47,17 @@ var resumeSchema = new Schema({
     Date: { type: Date, default: Date.now }
 });
 
+//Config
+var configSchema = new Schema({
+    Author: String,
+    Background: Number,
+    WelcomeMessage: [String]
+});
+
 //Model
 var Portfolio = mongoose.model('Portfolio', portfolioSchema);
 var Resume = mongoose.model('Resume', resumeSchema);
+var Config = mongoose.model('Config', configSchema);
 
 //ODM
 var portfolio = new Portfolio({
@@ -79,6 +89,12 @@ var resume = new Resume({
     }]
 })
 
+var config = new Config({
+    Author: 'YINLCHEN',
+    Background: 1,
+    WelcomeMessage: ['Hej!', 'こんにちは!', 'Bonjour!', '三碗豬腳']
+})
+
 /*
 //Save
 portfolio.save(function (err) {
@@ -89,8 +105,7 @@ portfolio.save(function (err) {
         console.log ('Save Success!')
     }
 });
-
-resume.save(function (err) {
+config.save(function (err) {
     if (err){
         console.log ('Error on save!')
     }
@@ -99,6 +114,21 @@ resume.save(function (err) {
     }
 });
 */
+
+app.get('/index', function(req, res) {
+    Config.find({}).exec(function(err, config) {
+        var map = {};
+    
+        config.forEach(function(config) {
+            map[config._id] = config;
+        });
+  
+        if(err){
+            res.send(err);
+            }
+        res.json(map);
+    });
+});
 
 app.get('/portfolio', function(req, res) {
     Portfolio.find({}).sort({"date":1}).exec(function(err, portfolios) {

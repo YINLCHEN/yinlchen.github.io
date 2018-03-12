@@ -15,6 +15,19 @@ const ChangeColorIcon = (props) => (
 );
 
 class ChangeBackground extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false,
+            data: []
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.props
+        });
+     }
 
     increment = () => {
         this.props.dispatch({ type: 'INCREMENT' });

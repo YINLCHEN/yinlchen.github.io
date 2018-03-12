@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBarExampleIcon from '../AppBarExampleIcon';
+import DrawerAppBar from '../DrawerAppBar';
 import Content from './Content';
 import axios from 'axios';
 
@@ -20,7 +20,7 @@ class App extends Component {
                 this.setState({ data: res.data });
             })
     }
-    
+
     componentDidMount() {
         this.loadTodosFromServer();
         //setInterval(this.loadTodosFromServer, this.props.pollInterval);
@@ -30,7 +30,7 @@ class App extends Component {
         return (
             <div>
                 <MuiThemeProvider >
-                    <AppBarExampleIcon />
+                    <DrawerAppBar />
                 </MuiThemeProvider >
                 <div className="App">
                     <Content props={this.state.data}/>

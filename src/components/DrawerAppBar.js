@@ -12,8 +12,17 @@ class DrawerAppBar extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {open: false};
+        this.state = {
+            open: false,
+            data: []
+        };
     }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.props
+        });
+     }
 
     handleToggle = () => this.setState({open: !this.state.open});
 
@@ -33,7 +42,7 @@ class DrawerAppBar extends React.Component {
                     onLeftIconButtonClick = {this.handleToggle}
                     >
                     
-                    <ChangeBackground />
+                    <ChangeBackground props={this.state.data}/>
                         
                 </AppBar>
                 
@@ -54,10 +63,4 @@ class DrawerAppBar extends React.Component {
     }
 }
 
-const AppBarExampleIcon = () => (
-    <div>
-        <DrawerAppBar/>
-    </div>
-);
-
-export default AppBarExampleIcon;
+export default DrawerAppBar;

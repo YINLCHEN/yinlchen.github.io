@@ -22,34 +22,44 @@ const AboutIcon = (props) => (
     </SvgIcon>
 )
 
-const element =
-    <div className="container">
-        <div className="row">
-            <div className="col-lg-12">
-                <div className="title">
-                    <Clock />
+class Content extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = { data: [] };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.props
+        });
+     }
+
+    render(){
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="title">
+                            <Clock props={this.state.data}/>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-12">
+                        <MuiThemeProvider >
+                            <RaisedButton
+                                label="Enter"
+                                secondary={true}
+                                style={styles.button}
+                                icon={<AboutIcon />}
+                                containerElement={<Link to="/home" />}
+                            />
+                        </MuiThemeProvider>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div className="row">
-            <div className="col-lg-12">
-                <MuiThemeProvider >
-                    <RaisedButton
-                        label="Enter"
-                        secondary={true}
-                        style={styles.button}
-                        icon={<AboutIcon />}
-                        containerElement={<Link to="/home" />}
-                    />
-                </MuiThemeProvider>
-            </div>
-        </div>
-    </div>
-;
-
-class Content extends React.Component{
-    render(){
-        return element;
+        );
     }
 }
 

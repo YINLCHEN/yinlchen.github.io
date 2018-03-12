@@ -35,7 +35,7 @@ const router = () => (
 )
 
 const IndexPage = () => (
-    <IndexApp />
+    <IndexApp url='/index' pollInterval={10000}/>
 )
 
 const Home = () => (

@@ -9,7 +9,7 @@ class Clock extends React.Component {
             date: new Date(),
             counter: 0,
             messageCounter: 0,
-            data: ['Hej!', 'こんにちは!', 'Bonjour!', '三碗豬腳'],
+            data: [],
             open: true
         };
     }
@@ -23,6 +23,12 @@ class Clock extends React.Component {
     componentWillUnmount() {
         clearInterval(this.timerID);
     }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.props
+        });
+     }
   
     tick() {
         this.setState({
@@ -35,13 +41,21 @@ class Clock extends React.Component {
     }
     
     render() {
+        const data = this.state.data;
         const classes = this.state.open ? 'basket' : 'basket hide'
-        return (
-            <div className={classes} 
+        const element =  Object.keys(data).map((key,index) => 
+            <div 
+                key={key}
+                className={classes} 
                 style={{
                     color: dispatchFontColor(this.props.count)
                 }}>
-                {this.state.data[this.state.messageCounter%4]}
+            {data[key].WelcomeMessage[this.state.messageCounter % data[key].WelcomeMessage.length]}
+            </div>
+        );
+        return (
+            <div>
+                {element}
             </div>
         );
     }

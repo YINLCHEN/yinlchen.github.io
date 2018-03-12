@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBarExampleIcon from '../AppBarExampleIcon';
+import DrawerAppBar from '../DrawerAppBar';
 import Header from './Header';
 import '../../css/App.css';
 import '../../css/bootstrap-grid.css';
@@ -10,7 +10,7 @@ class App extends Component {
         return (
             <div>
                 <MuiThemeProvider >
-                    <AppBarExampleIcon />
+                    <DrawerAppBar />
                 </MuiThemeProvider >
                 <div className="App">
                     <Header />
