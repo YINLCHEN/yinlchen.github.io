@@ -160,7 +160,7 @@ app.get('/resume', function(req, res) {
     });
 });
 
-var uri = 'mongodb://custom:!QAZ2wsx@ds153958.mlab.com:53958/heroku_8n50nr6t'
+var uri = process.env.MONGOLAB_URI;
 mongoose.connect(uri, function(err, db){
     if(err){
         console.log('Unable to connect to the mongoDB server.', err);
