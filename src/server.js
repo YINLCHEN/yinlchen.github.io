@@ -3,10 +3,14 @@ const path = require('path');
 const app = express();
 var mongoose = require('mongoose');
 
-app.use(express.static('build'));
-
-app.get('/', function (req, res) {
-    res.sendFile(path.join('index.html'));
+var uri = process.env.MONGOLAB_URI || 'mongodb://custom:!QAZ2wsx@ds153958.mlab.com:53958/heroku_8n50nr6t'
+mongoose.connect(uri, function(err, db){
+    if(err){
+        console.log('Unable to connect to the mongoDB server.', err);
+    }
+    else{
+        console.log('Connection established!', uri);
+    }
 });
 
 //DB Server
@@ -54,10 +58,17 @@ var configSchema = new Schema({
     WelcomeMessage: [String]
 });
 
+//Log
+var logSchema = new Schema({
+    IP: String,
+    Date: { type: Date, default: Date.now }
+});
+
 //Model
 var Portfolio = mongoose.model('Portfolio', portfolioSchema);
 var Resume = mongoose.model('Resume', resumeSchema);
 var Config = mongoose.model('Config', configSchema);
+var Log = mongoose.model('Log', logSchema);
 
 //ODM
 var portfolio = new Portfolio({
@@ -105,17 +116,30 @@ portfolio.save(function (err) {
         console.log ('Save Success!')
     }
 });
-config.save(function (err) {
-    if (err){
-        console.log ('Error on save!')
-    }
-    else{
-        console.log ('Save Success!')
-    }
-});
 */
 
+app.use(express.static('build'));
+
+app.get('/', function (req, res) {
+    res.sendFile(path.join('index.html'));
+});
+
 app.get('/index', function(req, res) {
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    
+    var log = new Log({
+        IP: ip
+    })
+    
+    log.save(function (err) {
+        if (err){
+            console.log ('Error on save!')
+        }
+        else{
+            console.log ('Save Success!')
+        }
+    });
+    
     Config.find({}).exec(function(err, config) {
         var map = {};
     
@@ -158,16 +182,6 @@ app.get('/resume', function(req, res) {
             }
         res.json(map);
     });
-});
-
-var uri = process.env.MONGOLAB_URI || 'mongodb://read_custom:!QAZ2wsx@ds153958.mlab.com:53958/heroku_8n50nr6t'
-mongoose.connect(uri, function(err, db){
-    if(err){
-        console.log('Unable to connect to the mongoDB server.', err);
-    }
-    else{
-        console.log('Connection established!', uri);
-    }
 });
 
 var port = process.env.PORT || 3001;
