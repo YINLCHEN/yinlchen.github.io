@@ -68,11 +68,12 @@ function mapStateToProps(state) {
 }
 
 function dispatchFontColor(backgroundColor){
-    switch(backgroundColor%3){
+    switch(backgroundColor%4){
         case 0:
             return '#EF9A9A'
             
         case 1:
+        case 3:
             return 'white'
 
         case 2:

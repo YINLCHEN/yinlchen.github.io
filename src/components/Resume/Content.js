@@ -46,7 +46,7 @@ class Content extends React.Component{
                                 </div>
                             </div>
                         </div>
-                        <hr/><br/>
+                        <br/><br/><hr/>
 
                         <h1>技能</h1>
                         <MuiThemeProvider >

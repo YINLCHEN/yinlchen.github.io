@@ -58,14 +58,17 @@ class Portfolio extends Component{
                     <p>{this.props.projectContribute}</p>
                 </div>
                 <MuiThemeProvider>
-                    <RaisedButton
-                        target="_blank"
-                        href={this.props.href}
-                        label="Project Link"
-                        secondary={true}
-                        style={styles.button}
-                        icon={<GitHubIcon />}
-                    />
+                    {
+                        this.props.href ?
+                        <RaisedButton
+                            target="_blank"
+                            href={this.props.href}
+                            label="Project Link"
+                            secondary={true}
+                            style={styles.button}
+                            icon={<GitHubIcon />}
+                        /> : null
+                    }
                 </MuiThemeProvider>
             </div>
         );

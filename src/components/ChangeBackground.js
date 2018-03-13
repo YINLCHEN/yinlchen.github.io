@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import BackImg1 from '../images/IMG_0977.JPG';
 import BackImg2 from '../images/IMG_2014.JPG';
 import BackImg3 from '../images/IMG_6889.JPG';
+import BackImg4 from '../images/IMG_0836.jpg';
 
 const ChangeColorIcon = (props) => (
     <SvgIcon {...props}>
@@ -31,7 +32,7 @@ class ChangeBackground extends React.Component {
 
     increment = () => {
         this.props.dispatch({ type: 'INCREMENT' });
-        ChangeColor(this.props.count);
+        ChangeBackgroundFnc(this.props.count);
     }
 
     render() {
@@ -52,16 +53,16 @@ class ChangeBackground extends React.Component {
 
 function mapStateToProps(state) {
     if(state.count === 0){
-        ChangeColor(1);
-        state.count = 2;
+        ChangeBackgroundFnc(3);
+        state.count = 0;
     }
     return {
         count: state.count
     };
 }
 
-function ChangeColor(params) {
-    switch(params % 3) {
+function ChangeBackgroundFnc(params) {
+    switch(params % 4) {
         case 0:
             document.body.style.background = "#000 url(" + BackImg1 + ") center center fixed no-repeat"
             break;
@@ -70,6 +71,9 @@ function ChangeColor(params) {
             break;
         case 2:
             document.body.style.background = "#000 url(" + BackImg3 + ") center center fixed no-repeat"
+            break;
+        case 3:
+            document.body.style.background = "#000 url(" + BackImg4 + ") center center fixed no-repeat"
             break;
         default:
     };
