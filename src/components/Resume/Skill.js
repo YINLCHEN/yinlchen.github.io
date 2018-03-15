@@ -95,9 +95,9 @@ export default class Skill extends React.Component {
                     onChange={this.handleChange}
                     value={this.state.slideIndex}
                 >
-                    <Tab style={styles.tab} label="Front-end" value={0} />
-                    <Tab style={styles.tab} label="Back-end" value={1} />
-                    <Tab style={styles.tab} label="軟體工程" value={2} />
+                    <Tab style={styles.tab} label="Modern Web Development" value={0} />
+                    <Tab style={styles.tab} label="Object-Oriented Development " value={1} />
+                    <Tab style={styles.tab} label="Software Engineering" value={2} />
                 </Tabs>
                 <SwipeableViews
                     index={this.state.slideIndex}
