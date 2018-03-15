@@ -19,10 +19,10 @@ mongoose.connect(uri, function(err, db){
 var Schema = mongoose.Schema;
 var portfolioSchema = new Schema({
     author: String,
-    image: String,
+    image:  String,
     title:  String,
     body:   String,
-    link: String,
+    link:   String,
     date: { type: Date, default: Date.now },
     hidden: Boolean,
 });
@@ -30,24 +30,18 @@ var portfolioSchema = new Schema({
 //Resume
 var WorkNestedSchema = new Schema({
     WorkTime: String,
-    Company: String,
+    Company:  String,
     Describe: String
 });
 var ProjectNestedSchema = new Schema({
-    Title: String,
-    Describe: String
-});
-var SkillNestedSchema = new Schema({
-    Title: String,
-    Image: String,
+    Title:    String,
     Describe: String
 });
 var resumeSchema = new Schema({
     Author: String,
-    About: String,
-    WorkExperience:  [WorkNestedSchema],
+    About:  String,
+    WorkExperience:     [WorkNestedSchema],
     ProjectExperience:  [ProjectNestedSchema],
-    Skill: [SkillNestedSchema],
     Date: { type: Date, default: Date.now }
 });
 
@@ -64,59 +58,28 @@ var logSchema = new Schema({
     Date: { type: Date, default: Date.now }
 });
 
+//Skill
+var skillSchema = new Schema({
+    Classify:  String,
+    SkillName: String,
+    SkillLogo: String,
+    Tag:       String
+});
+
 //Model
 var Portfolio = mongoose.model('Portfolio', portfolioSchema);
 var Resume = mongoose.model('Resume', resumeSchema);
 var Config = mongoose.model('Config', configSchema);
 var Log = mongoose.model('Log', logSchema);
+var Skill = mongoose.model('Skill', skillSchema);
 
 //ODM
-var portfolio = new Portfolio({
-    author: 'YINLCHEN',
-    image: '',
-    title: 'titleTest',
-    body: 'bodyTest',
-    link: '',
-    hidden: false
+var skill = new Skill({
+    Classify:  "Front",
+    SkillName: "React",
+    SkillLogo: "ReactLogo",
+    Tag:       ""
 })
-
-var resume = new Resume({
-    Author: 'YINLCHEN',
-    About: 'about',
-    WorkExperience:  [{
-        WorkTime: '2016',
-        Company: 'ooo',
-        Describe: 'xxx',
-        Image: ''}
-    ],
-    ProjectExperience:  [{
-        Title: 'hey',
-        Describe: 'work'
-    }],
-    Skill: [{
-        Title: 'front',
-        Image: 'name',
-        Describe: 'href'
-    }]
-})
-
-var config = new Config({
-    Author: 'YINLCHEN',
-    Background: 1,
-    WelcomeMessage: ['Hej!', 'こんにちは!', 'Bonjour!', '三碗豬腳']
-})
-
-/*
-//Save
-portfolio.save(function (err) {
-    if (err){
-        console.log ('Error on save!')
-    }
-    else{
-        console.log ('Save Success!')
-    }
-});
-*/
 
 app.use(express.static('build'));
 
@@ -126,19 +89,19 @@ app.get('/', function (req, res) {
 
 app.get('/index', function(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    
-    var log = new Log({
-        IP: ip
-    })
-    
-    log.save(function (err) {
-        if (err){
-            console.log ('Error on save!')
-        }
-        else{
-            console.log ('Save Success!')
-        }
-    });
+    if( ip != "123.194.133.19" && ip != "127.0.0.1" && ip.substring(0, 7) != "192.168" ){
+        var log = new Log({
+            IP: ip
+        })
+        log.save(function (err) {
+            if (err){
+                console.log ('Error on save!')
+            }
+            else{
+                console.log ('Save Success!')
+            }
+        });
+    }
     
     Config.find({}).exec(function(err, config) {
         var map = {};
@@ -172,16 +135,17 @@ app.get('/portfolio', function(req, res) {
 app.get('/resume', function(req, res) {
     Resume.find({}).sort({"date":1}).exec(function(err, resume) {
         var map = {};
-    
+        
         resume.forEach(function(resume) {
             map[resume._id] = resume;
         });
   
         if(err){
             res.send(err);
-            }
+        }
         res.json(map);
     });
+    
 });
 
 var port = process.env.PORT || 3001;
