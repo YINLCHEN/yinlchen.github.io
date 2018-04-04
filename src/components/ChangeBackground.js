@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import BackImg1 from '../images/IMG_0977.JPG';
 import BackImg2 from '../images/IMG_2014.JPG';
 import BackImg3 from '../images/IMG_6889.JPG';
-import BackImg4 from '../images/IMG_0836.jpg';
+import BackImg4 from '../images/IMG_0835.jpg';
 
 const ChangeColorIcon = (props) => (
     <SvgIcon {...props}>
