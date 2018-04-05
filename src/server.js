@@ -89,7 +89,7 @@ app.get('/', function (req, res) {
 
 app.get('/index', function(req, res) {
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    if( ip != "123.194.133.19" && ip != "127.0.0.1" && ip.substring(0, 7) != "192.168" ){
+    if( ip != "123.194.133.19" && ip != "127.0.0.1" && ip.substring(0, 7) != "192.168" && ip != "114.42.89.178"){
         var log = new Log({
             IP: ip
         })
