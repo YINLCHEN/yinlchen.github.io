@@ -31,7 +31,10 @@ const styles = {
 class Image extends Component{
     constructor(props) {
         super(props);
-        this.state = {imageSrc: props.projectImage}
+        this.state = {
+            imageSrc: props.projectImage,
+            previewSrc: props.previewSrc
+        }
     }
 
     render(){
@@ -42,7 +45,7 @@ class Image extends Component{
         }
         else{
             return (
-                <img alt="photoshot" src={this.state.imageSrc} align="middle"/>
+                <a target="_blank" href={this.state.previewSrc}><img alt="photoshot" src={this.state.imageSrc} align="middle" /></a>
             )
         }
     }
@@ -52,7 +55,7 @@ class Portfolio extends Component{
     render(){
         return (
             <div className="PortfolioContainer">
-                <Image projectImage={this.props.projectImage}/>
+                <Image projectImage={this.props.projectImage} previewSrc={this.props.previewSrc}/>
                 <h3>{this.props.projectName}</h3>
                 <div className="TextContainer">
                     <p>{this.props.projectContribute}</p>

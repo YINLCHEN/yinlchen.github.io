@@ -19,10 +19,11 @@ class Content extends React.Component{
         const element =  Object.keys(data).map((key,index) => 
             <Portfolio
                 key={index}
-                projectImage={ data[key].image ? require('../../images/' + data[key].image + '.gif') : null }
+                projectImage={ data[key].image ? require('../../images/' + data[key].image) : null }
                 projectName={data[key].title}
                 projectContribute = {data[key].body}
-                href={data[key].link} 
+                href={data[key].link}
+                previewSrc={data[key].previewSrc}
             />
         );
 
