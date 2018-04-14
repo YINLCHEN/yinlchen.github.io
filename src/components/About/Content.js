@@ -19,7 +19,6 @@ const element =
                 <h1>開發心路歷程</h1>
                     從無到有，苦盡甘來
                     <br/>
-                    
                 <hr />
             </div>
         </div>
