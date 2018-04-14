@@ -60,7 +60,8 @@ class DrawerAppBar extends React.Component {
                     style=
                     {{
                         backgroundColor: blueGrey50,
-                        opacity: 0.5
+                        position: 'fixed',
+                        top: 0,
                     }}
                     titleStyle = {{color:black}}
                     iconStyleLeft = {styles.button}

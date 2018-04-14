@@ -14,17 +14,17 @@ const GitHubIcon = (props) => (
 
 const styles = {
     button: {
-      margin: 12,
+        margin: 12,
     },
     exampleImageInput: {
-      cursor: 'pointer',
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
-      right: 0,
-      left: 0,
-      width: '100%',
-      opacity: 0,
+        cursor: 'pointer',
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        right: 0,
+        left: 0,
+        width: '100%',
+        opacity: 0,
     }
 };
 
@@ -67,7 +67,7 @@ class Portfolio extends Component{
                             target="_blank"
                             href={this.props.href}
                             label="Project Link"
-                            secondary={true}
+                            primary={true}
                             style={styles.button}
                             icon={<GitHubIcon />}
                         /> : null

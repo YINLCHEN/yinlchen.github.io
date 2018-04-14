@@ -1,7 +1,7 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SvgIcon from 'material-ui/SvgIcon';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import Clock from './Clock';
 import {
     Link
@@ -10,14 +10,16 @@ import '../../css/Index/Content.css';
 
 const styles = {
     button: {
-        margin: 15,
+        marginTop: 10,
+        color: '#FFFFFF',
+        border: '1px solid'
     }
 };
 
-const AboutIcon = (props) => (   
-    <SvgIcon {...props}>
+const EnterIcon = (props) => (   
+    <SvgIcon {...props} >
     {
-    <path d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/>
+        <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/>
     }
     </SvgIcon>
 )
@@ -48,13 +50,15 @@ class Content extends React.Component{
                 <div className="row">
                     <div className="col-lg-12">
                         <MuiThemeProvider >
-                            <RaisedButton
-                                label="Enter"
+                            <FlatButton
                                 secondary={true}
+                                label='COME HERE !'
+                                labelStyle={{fontSize:'15px'}}
+                                icon={<EnterIcon />}
+                                fullWidth={true}
                                 style={styles.button}
-                                icon={<AboutIcon />}
                                 containerElement={<Link to="/home" />}
-                            />
+                                />
                         </MuiThemeProvider>
                     </div>
                 </div>
