@@ -10,7 +10,7 @@ const element = (
                 <div className="introDiv">
                     <h1>CHEN YIN LIN</h1>
                     <div>
-                        <h4>React F2E X Taipei TW</h4>
+                        <h3>Front-End Engingeer, Javascript x React, Hualien Taiwan</h3>
                         <hr/>
                         <h3>
                             <a target="_blank" href="https://medium.com/@YINLCHEN/" rel="noopener noreferrer" >Medium 技術文章</a>
