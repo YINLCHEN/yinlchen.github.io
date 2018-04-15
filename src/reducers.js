@@ -1,5 +1,5 @@
 const initialState = {
-    count: 0
+    count: 3
 };
 
 export default (state = initialState, action) => {
