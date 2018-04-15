@@ -13,7 +13,7 @@ const element = (
                         <h4>React F2E X Taipei TW</h4>
                         <hr/>
                         <h3>
-                            <a target="_blank" href="https://medium.com/@YINLCHEN/">Medium 技術文章</a>
+                            <a target="_blank" href="https://medium.com/@YINLCHEN/" rel="noopener noreferrer" >Medium 技術文章</a>
                             <br/>
                             <a href="mailto:sidneychen137@gmail.com">sidneychen137@gmail.com</a>
                         </h3>
