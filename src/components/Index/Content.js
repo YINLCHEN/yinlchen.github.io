@@ -7,14 +7,7 @@ import {
     Link
 } from 'react-router-dom'
 import '../../css/Index/Content.css';
-
-const styles = {
-    button: {
-        marginTop: 10,
-        color: '#FFFFFF',
-        border: '1px solid'
-    }
-};
+import { connect } from 'react-redux';
 
 const EnterIcon = (props) => (   
     <SvgIcon {...props} >
@@ -38,6 +31,14 @@ class Content extends React.Component{
      }
 
     render(){
+        const styles = {
+            button: {
+                marginTop: 10,
+                color: dispatchFontColor(this.props.count),
+                border: '1px solid'
+            }
+        };
+
         return (
             <div className="container">
                 <div className="row">
@@ -67,4 +68,25 @@ class Content extends React.Component{
     }
 }
 
-export default Content;
+function mapStateToProps(state) {
+    return {
+        count: state.count
+    };
+}
+
+function dispatchFontColor(backgroundColor){
+    switch(backgroundColor%4){
+        case 0:
+            return '#EF9A9A'
+        case 1:
+            return 'white'
+        case 3:
+            return 'white'
+        case 2:
+            return '#F4FF81'
+        default:
+            return '#white'
+    }
+}
+
+export default connect(mapStateToProps)(Content);

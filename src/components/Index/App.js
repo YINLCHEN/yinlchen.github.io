@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import DrawerAppBar from '../DrawerAppBar';
 import Content from './Content';
 import axios from 'axios';
+import BackgroundBase from '../BackgroundBase';
 
 import '../../css/App.css';
 import '../../css/bootstrap-grid.css';
@@ -23,7 +24,6 @@ class App extends Component {
     
     componentDidMount() {
         this.loadTodosFromServer();
-        //setInterval(this.loadTodosFromServer, this.props.pollInterval);
     }
 
     render() {
@@ -32,6 +32,9 @@ class App extends Component {
                 <MuiThemeProvider>
                     <DrawerAppBar props={this.state.data}/>
                 </MuiThemeProvider >
+                
+                <BackgroundBase props={this.state.data}/>
+
                 <div className="IndexApp">
                     <Content props={this.state.data}/>
                 </div>

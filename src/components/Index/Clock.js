@@ -10,13 +10,17 @@ class Clock extends React.Component {
             counter: 0,
             messageCounter: 0,
             data: [],
-            open: true
+            open: true,
+            count: 0
         };
     }
   
     componentDidMount() {
+        this.setState({
+            count: this.props.count,
+        })
         this.timerID = setInterval(
-            () => this.tick(), 2500
+            () => this.tick(), 1250
         );
     }
   
@@ -35,9 +39,9 @@ class Clock extends React.Component {
             date: new Date(),
             counter: this.state.counter+1,
             messageCounter: this.state.counter%2 !== 0 ? this.state.messageCounter+1 : this.state.messageCounter,
-            open: !this.state.open
+            open: !this.state.open,
+            count: this.props.count
         });
-        this.props.dispatch({ type: 'GET' });
     }
     
     render() {
@@ -48,9 +52,11 @@ class Clock extends React.Component {
                 key={key}
                 className={classes} 
                 style={{
-                    color: dispatchFontColor(this.props.count)
+                    color: dispatchFontColor(this.state.count)
                 }}>
+    
             {data[key].WelcomeMessage[this.state.messageCounter % data[key].WelcomeMessage.length]}
+            
             </div>
         );
         return (
@@ -63,7 +69,7 @@ class Clock extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        count: state.count-1
+        count: state.count
     };
 }
 
@@ -71,14 +77,12 @@ function dispatchFontColor(backgroundColor){
     switch(backgroundColor%4){
         case 0:
             return '#EF9A9A'
-            
         case 1:
+            return 'white'
         case 3:
             return 'white'
-
         case 2:
             return '#F4FF81'
-
         default:
             return '#white'
     }

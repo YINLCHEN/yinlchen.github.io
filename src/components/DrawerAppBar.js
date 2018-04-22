@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import {blueGrey50, black} from 'material-ui/styles/colors';
 import Drawer from 'material-ui/Drawer';
@@ -6,7 +7,6 @@ import MenuItem from 'material-ui/MenuItem';
 import {
     Link
 } from 'react-router-dom'
-import ChangeBackground from './ChangeBackground'
 import SvgIcon from 'material-ui/SvgIcon';
 import IconButton from 'material-ui/IconButton';
 
@@ -17,7 +17,7 @@ const styles = {
     }
 };
 
-const ChangeColorIcon = (props) => (
+const MenuIcon = (props) => (
     <SvgIcon height="36" viewBox="0 0 24 24" width="36">
         {
             <svg fill="#000000" height="36" viewBox="0 0 24 24" width="36" xmlns="http://www.w3.org/2000/svg">
@@ -53,23 +53,23 @@ class DrawerAppBar extends React.Component {
             <div>
                 <AppBar
                     title="YINLCHEN"
-                    iconClassNameRight="muidocs-icon-navigation-expand-more"
-                    iconElementLeft = { <IconButton>
-                                        <ChangeColorIcon className={styles.button}/>
-                                             </IconButton>}
-                    style=
-                    {{
-                        backgroundColor: blueGrey50,
-                        position: 'fixed',
-                        top: 0,
-                    }}
                     titleStyle = {{color:black}}
+                    iconElementLeft = { 
+                        <IconButton>
+                            <MenuIcon className={styles.button}/>
+                        </IconButton>
+                    }
                     iconStyleLeft = {styles.button}
                     onLeftIconButtonClick = {this.handleToggle}
+
+                    style=
+                        {{
+                            backgroundColor: blueGrey50,
+                            position: 'fixed',
+                            top: 0,
+                        }}
                     >
-                    
-                    <ChangeBackground props={this.state.data}/>
-                        
+
                 </AppBar>
                 
                 <Drawer
@@ -84,9 +84,16 @@ class DrawerAppBar extends React.Component {
                     <MenuItem onClick={this.handleClose} containerElement={<Link to="/resume" />}>Resume</MenuItem>
                     <MenuItem onClick={this.handleClose} containerElement={<Link to="/portfolio" />}>Portfolio</MenuItem>
                 </Drawer>
+
             </div>
         );
     }
 }
 
-export default DrawerAppBar;
+function mapStateToProps(state) {
+    return {
+        count: state.count
+    };
+}
+
+export default connect(mapStateToProps)(DrawerAppBar);
